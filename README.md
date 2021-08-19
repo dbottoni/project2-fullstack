@@ -10,11 +10,11 @@
 
 ## Contributors
 
-* Front End
+### Front End
 * Norma De Jesus
 * Chunyu Chang
 
-* Back End
+### Back End
 * Karla Romero
 * Dana Bottoni
 
