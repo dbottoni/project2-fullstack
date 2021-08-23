@@ -9,7 +9,11 @@
     background-color: skyblue;
     color: #fff;
     /* padding: 1.25rem 2.5rem 1.25rem 1.5rem; */
-    padding: 10vw 10vw;
+    padding: 5vw 8vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: -7vw;
+
 }
 
 .footer {
