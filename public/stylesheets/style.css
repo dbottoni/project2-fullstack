@@ -1,8 +1,10 @@
 
 
 .section {
-    padding: 5rem 3rem;
-    
+    /* padding: 5rem 3rem; */
+    position: fixed;
+    width: 100%;
+    margin: 5% auto;
 }
 
 .notification.is-primary {
@@ -20,7 +22,15 @@
     background-color: skyblue;
     color: black;
     padding: 3rem 1.5rem 5.5rem;
-    height: 50px;
-    margin-top: -50px;
+    /* height: 50px; */
+    /* margin-top: -50px; */
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: red; */
+    /* color: white; */
+    text-align: center;
     
 }
