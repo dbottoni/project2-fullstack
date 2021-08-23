@@ -1,47 +1,32 @@
-# project2-fullstack
+# Project 2 Full Stack Application
 
-## User Story
-  
-```
+## Table of Contents
 
-
-```
+- [Contributors](#contributors)
+- [Images](#images)
+- [Technology](#technology)
 
 ## Description
-  
-## Heroku 
-[Note Taker App]()
-## Screenshot
-![Note-Taker]()
-## Table of Contents
-- [Description](#description)
-- [Heroku Link](#Heroku)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Languages](#languages)
-- [Contributing](#contributing)
-- [Reference](#reference)
-- [Questions](#questions)
-## Installation
-  `npm init -y`
-  
-  `npm install express`
-## Usage
-  Run the following command at th root of your project and answer the prompted questions:<br />
 
-  `npm start`
+## Contributors
 
-  
-## Languages
-  JavaScript,Node,HTML,CSS,Express
-## Contributing
-  Dana Bottoni
-  Karla Romero
-  Norma De Jesus
-  ChunYu Chang
-## Reference
-  
-## Questions
- Contact us<br />
+### Front End
+* Norma De Jesus
+* Chunyu Chang
 
-## Contact
+### Back End
+* Karla Romero
+* Dana Bottoni
+
+## Images
+
+
+## Technology
+
+* HTML & CSS
+* Express
+* Node.js
+* Handlebars
+* Heroku
+* Sequelize
+* MySQL
