@@ -1,0 +1,26 @@
+
+
+.section {
+    padding: 5rem 3rem;
+    
+}
+
+.notification.is-primary {
+    background-color: skyblue;
+    color: #fff;
+    /* padding: 1.25rem 2.5rem 1.25rem 1.5rem; */
+    padding: 5vw 8vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: -7vw;
+
+}
+
+.footer {
+    background-color: skyblue;
+    color: black;
+    padding: 3rem 1.5rem 5.5rem;
+    height: 50px;
+    margin-top: -50px;
+    
+}
