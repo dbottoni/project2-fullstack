@@ -19,18 +19,18 @@ router.get('/:id', (req,res) => {
       id: req.params.id
     },
     include: [
-      {
-        model: Project,
-        attributes: ['id', 'title', 'user_id', 'created_at']
-      },
-      {
-        model: Tasks,
-        attributes: ['id', 'comment_text', 'user_id', 'project_id', 'created_at'],
-        include: {
-          model: Project,
-          attributes: ['title']
-        }
-      }
+      // {
+      //   model: Project,
+      //   attributes: ['id', 'title', 'user_id', 'created_at']
+      // },
+      // {
+      //   model: Tasks,
+      //   attributes: ['id', 'comment_text', 'user_id', 'project_id', 'created_at'],
+      //   include: {
+      //     model: Project,
+      //     attributes: ['title']
+      //   }
+      // }
     ]
   })
   .then(dbUserData => {

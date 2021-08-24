@@ -3,10 +3,41 @@ const Project = require('./Project');
 const Tasks = require('./Tasks');
 
 //need to create associations
+User.hasMany(Project, {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Tasks, {
+  foreignKey: 'user_id'
+});
+
+Project.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+// should this be belongsToMany? - review, causing a circular reference error
+// User.belongsTo(Project, {
+//   foreignKey: 'user_id',
+//   onDelete: 'SET NULL'
+// });
 
 
+Tasks.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+Tasks.belongsTo(Project, {
+  foreignKey: 'prohect_id',
+  onDelete: 'SET NULL'
+});
 
 
+//not sure this is associated correctly
+Project.hasMany(Tasks, {
+  foreignKey: 'project_id',
+});
 
 
 
