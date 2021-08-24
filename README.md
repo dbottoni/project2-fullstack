@@ -30,3 +30,7 @@
 * Heroku
 * Sequelize
 * MySQL
+
+
+
+
