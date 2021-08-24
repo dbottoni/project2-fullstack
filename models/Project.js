@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Tasks extends Model {}
+class Project extends Model { }
 
-Tasks.init(
+Project.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,24 +11,14 @@ Tasks.init(
       primaryKey: true,
       autoIncrement: true
     },
-    comment_text: {
+    title: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: false
     },
-    user_id: {
+     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id'
-      }
-    },
-    project_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'project',
         key: 'id'
       }
     }
@@ -37,8 +27,8 @@ Tasks.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tasks'
+    modelName: 'project'
   }
 );
 
-module.exports = Tasks;
+module.exports = Project;
