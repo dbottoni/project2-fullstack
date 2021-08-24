@@ -53,6 +53,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json( { message: 'No project found with this ID'} );
         return;
       }
+      res.json(dbProjectData);
     })
     .catch(err => {
       console.log(err);
