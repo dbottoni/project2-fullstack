@@ -16,6 +16,11 @@ Project.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
+//not sure this is associated correctly
+Project.hasMany(Tasks, {
+  foreignKey: 'project_id',
+});
+
 // should this be belongsToMany? - review, causing a circular reference error
 // User.belongsTo(Project, {
 //   foreignKey: 'user_id',
@@ -32,13 +37,6 @@ Tasks.belongsTo(Project, {
   foreignKey: 'prohect_id',
   onDelete: 'SET NULL'
 });
-
-
-//not sure this is associated correctly
-Project.hasMany(Tasks, {
-  foreignKey: 'project_id',
-});
-
 
 
 
