@@ -34,7 +34,7 @@ Tasks.belongsTo(User, {
 });
 
 Tasks.belongsTo(Project, {
-  foreignKey: 'prohect_id',
+  foreignKey: 'project_id',
   onDelete: 'SET NULL'
 });
 
