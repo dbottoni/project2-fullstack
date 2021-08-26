@@ -61,7 +61,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 router.post('/', withAuth, (req, res) => {
   if (req.session) {
     Project.create({
