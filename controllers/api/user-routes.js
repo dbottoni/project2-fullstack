@@ -67,6 +67,8 @@ router.post('/', (req, res) => {
   });
 });
 
+//need login and logout post routes
+
 router.put('/:id', (req,res) => {
   User.update(req.body, {
     individualHooks: true,
