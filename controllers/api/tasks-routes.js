@@ -25,6 +25,25 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  Tasks.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbTasksdata => {
+    if(!dbTasksdata) {
+      res.status(404).json({ message: 'No task found with this id!' });
+      return;
+    }
+    res.json(dbTasksdata);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+
+});
 
 
 module.exports = router;
