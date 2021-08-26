@@ -75,7 +75,48 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
+router.put('/:id', (req, res) => {
+  Project.update(
+    {
+      title: req.body.title
+    },
+    {
+      where: { 
+        id:req.params.id
+      }
+    }
+  )
+  .then(dbProjectData => {
+    if(!dbProjectData) {
+      res.status(404).json({ message: 'No project found with this ID '});
+      return;
+    }
+    res.json(dbProjectData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
+router.delete('/:id', (req, res) => {
+  Project.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbProjectData => {
+    if(!dbProjectData){
+      res.status(404).json({ message: 'No project found with this ID '});
+      return;
+    }
+    res.json(dbProjectData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
 
 module.exports = router;
