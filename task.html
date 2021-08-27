@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P2</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="./public/stylesheets/style.css">
   
 </head>
 
@@ -20,11 +20,11 @@
 
     <div class="row min-vh-100 no-gutters">
       <header class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3">
-        <h1 class="text-center"><span class="oi oi-task d-inline d-lg-none"></span>
-          Taskmaster Pro Edition</h1>
-        <button id="create-task" class="btn btn-block btn-add" data-toggle="modal" data-target="#task-form-modal"><span
+        <h2 class="text-center primary-border"><span class="oi oi-task d-inline d-lg-none"></span>
+          <b>Tasks</b></h2>
+        <button id="create-task" class="btn btn-block btn-add button is-info" data-toggle="modal" data-target="#task-form-modal"><span
             class="oi oi-plus mr-2"></span>Add Task</button>
-        <button id="remove-tasks" class="btn btn-block btn-delete mb-2 mb-md-4"><span class="oi oi-trash mr-2">
+        <button id="remove-tasks" class="btn btn-block btn-delete mb-2 mb-md-4 button is-info"><span class="oi oi-trash mr-2">
           </span>Delete All Tasks</button>
      </header>
      </div>
@@ -34,56 +34,66 @@
     <main>
     
       <div class="columns is-centered is-mobile">
-
+<!--To do--> 
+        <article class="to-do">
         <div class="column is-narrow">
           <div class="box" style="width: 300px; border-style:solid;">
             <p class="title is-5 has-text-centered">To Do</p>
           </div>
-          
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-info">
-            </article>
+    
+
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="list-toDo" class="list-group list-group-flush">
+            </ul>
           </div>
-
-          
-          
-
         </div>
+        </article> 
+ <!--To do--> 
 
+  <!--In Process--> 
+        <article class="in-process">
         <div class="column is-narrow">
           <div class="box" style="width: 300px; border-style:solid;">
             <p class="title is-5 has-text-centered">In Process</p>
         </div>    
 
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-info">
-            </article>
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="list-toDo" class="list-group list-group-flush">
+            </ul>
           </div>
-          
         </div>
+        </div>
+        </article>
+ <!--In Process--> 
+
+  <!--Complete--> 
+        <article class="complete">
         <div class="column is-narrow">
           <div class="box" style="width: 300px; border-style:solid;">
             <p class="title is-5 has-text-centered">Complete</p>
           </div>
-
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-info">
-            </article>
+          
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <div class="card">
+              <ul id="list-done" class="list-group list-group-flush">
+              </ul>
+            </div>
           </div>
-        </div>
-
-       
-       </div>
-
-    
-     
-
+          </article>
+      
+<!--Complete-->  
+     </div>
     </main>
     <footer>
       Thanks for visiting!
     </footer>
-  </div>
 
-</body>
+
+   <script src="./public/javascript/login.js"></script>
+  </body>
+
+
 
 </html>
