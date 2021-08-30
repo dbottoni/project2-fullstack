@@ -62,12 +62,12 @@
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button is-primary">
+                    <button class="button is-primary" id="signBtn">
                       <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light">
-                      Log in
-                    </a>
+                    </button>
+                    <button class="button is-light" id="loginBtn">
+                      Login
+                    </button>
                   </div>
                 </div>
               </div>
@@ -75,12 +75,13 @@
           </nav>
     </header>
     <main>
-        <section class="section is-medium" >
+        <section class="section is-medium " id="login-page">
+          <form class="login-form">
             <div class="container">
                 <div class="notification is-primary">
-                    <div class="field">
+                    <div class="field login-form">
                         <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Username">
+                        <input class="input" type="email" placeholder="Username" id="email-login">
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -89,24 +90,69 @@
                         </span>
                         </p>
                     </div>
-                    <div class="field">
+                    <div class="field login-form">
                         <p class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Password">
+                        <input class="input" type="password" placeholder="Password" id="password-login">
                         <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
                         </span>
                         </p>
                     </div>
-                    <div class="field">
+                    <div class="field login-form">
                         <p class="control">
-                        <button class="button is-success">
-                            Sign In
+                        <button type="submit" class="button is-success">
+                            Login
                         </button>
                         </p>
-                    </div>            </div>
+                    </div>            
+                  </div>
             </div>
+          </form>
 
         </section>  
+        
+        <section class="section is-medium " id="signup-page">
+          <form class="signup-form" >
+            <div class="container">
+              <div class="notification is-primary">
+                  <div class="field signup-form">
+                      <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="Username" id="email-login">
+                      <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                      </span>
+                      </p>
+                  </div>
+                  <div class="field signup-form">
+                    <p class="control has-icons-left">
+                    <input class="input" type="email" placeholder="email" >
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    </p>
+                </div>
+                  <div class="field signup-form">
+                      <p class="control has-icons-left">
+                      <input class="input" type="password" placeholder="Password" id="password-login">
+                      <span class="icon is-small is-left">
+                          <i class="fas fa-lock"></i>
+                      </span>
+                      </p>
+                  </div>
+                  <div class="field signup-form">
+                      <p class="control">
+                      <button type="submit" class="button is-success">
+                          Sign up
+                      </button>
+                      </p>
+                  </div>            
+                </div>
+          </div>
+          </form>
+        </section>
     </main>
     <footer class="footer">
         <div class="content has-text-centered">
@@ -117,6 +163,8 @@
       </footer>
   </div>
 
+  <script src="./public/javascript/operation.js"></script>
+  <script src="./public/javascript/login.js"></script>
 </body>
 
 </html>
