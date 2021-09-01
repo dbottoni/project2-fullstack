@@ -37,38 +37,22 @@
                   Documentation
                 </a>
           
-                <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">
-                    More
-                  </a>
-          
-                  <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                      About
-                    </a>
-                    <a class="navbar-item">
-                      Jobs
-                    </a>
-                    <a class="navbar-item">
-                      Contact
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                      Report an issue
-                    </a>
-                  </div>
-                </div>
+                
               </div>
           
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
+                    {{#if loggedIn}}
+                    <button id="logout" class="button is-primary">logout</button>
+                    {{else}}
                     <button class="button is-primary" id="signBtn">
                       <strong>Sign up</strong>
                     </button>
                     <button class="button is-light" id="loginBtn">
                       Login
                     </button>
+                    {{/if}}
                   </div>
                 </div>
               </div>
@@ -78,7 +62,8 @@
     <main>
       {{{ body }}}
     </main>
-    <footer class="footer">
+
+    <footer class="footer" id="FID" style="display: block;">
         <div class="content has-text-centered">
           <p>
               footer thanks for visiting balala
@@ -86,10 +71,24 @@
         </div>
     </footer>
 
+  {{!-- {{#if loggedIn}}
+
+    <footer class="footer" id="FID" style="display: none;">
+        <div class="content has-text-centered">
+          <p>
+              footer thanks for visiting balala
+          </p>
+        </div>
+    </footer>
+  {{/if}} --}}
+
     
   {{!-- <script src="./public/javascript/operation.js"></script>
   <script src="./public/javascript/login.js"></script> --}}
-
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script> 
+  <script src="/javascript/blockfooter.js"></script>
+  {{/if}}
 
 </body>
 
