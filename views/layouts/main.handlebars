@@ -63,7 +63,15 @@
       {{{ body }}}
     </main>
 
-  {{#if loggedIn}}
+    <footer class="footer" id="FID" style="display: block;">
+        <div class="content has-text-centered">
+          <p>
+              footer thanks for visiting balala
+          </p>
+        </div>
+    </footer>
+
+  {{!-- {{#if loggedIn}}
 
     <footer class="footer" id="FID" style="display: none;">
         <div class="content has-text-centered">
@@ -72,12 +80,15 @@
           </p>
         </div>
     </footer>
-  {{/if}}
+  {{/if}} --}}
 
     
   {{!-- <script src="./public/javascript/operation.js"></script>
   <script src="./public/javascript/login.js"></script> --}}
-
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script> 
+  <script src="/javascript/blockfooter.js"></script>
+  {{/if}}
 
 </body>
 

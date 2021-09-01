@@ -46,7 +46,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/login');
+        document.location.replace('/task');
       } else {
         alert(response.statusText);
       }
