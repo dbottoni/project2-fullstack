@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Project, User, Tasks } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
 router.get('/', (req, res) => {
   Project.findAll({
     attributes: [ 'id', 'title', 'user_id'],
@@ -61,7 +62,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 router.post('/', withAuth, (req, res) => {
   if (req.session) {
     Project.create({
@@ -76,7 +76,48 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
+router.put('/:id', (req, res) => {
+  Project.update(
+    {
+      title: req.body.title
+    },
+    {
+      where: { 
+        id:req.params.id
+      }
+    }
+  )
+  .then(dbProjectData => {
+    if(!dbProjectData) {
+      res.status(404).json({ message: 'No project found with this ID '});
+      return;
+    }
+    res.json(dbProjectData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
+router.delete('/:id', (req, res) => {
+  Project.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbProjectData => {
+    if(!dbProjectData){
+      res.status(404).json({ message: 'No project found with this ID '});
+      return;
+    }
+    res.json(dbProjectData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
 
 module.exports = router;

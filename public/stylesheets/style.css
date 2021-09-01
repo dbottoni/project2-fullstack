@@ -7,6 +7,12 @@
     margin: 5% auto;
 }
 
+#signup-page {
+    position: fixed;
+    width: 100%;
+    margin: 5% auto;
+}
+
 .notification.is-primary {
     background-color: skyblue;
     color: #fff;
@@ -23,7 +29,7 @@
     color: black;
     padding: 3rem 1.5rem 5.5rem;
     /* height: 50px; */
-    /* margin-top: -50px; */
+    /* margin-top: -50vw; */
 
     position: fixed;
     left: 0;
@@ -34,3 +40,28 @@
     text-align: center;
     
 }
+
+
+/* @media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1920px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+      .section {
+        padding: 5rem 3rem;
+        margin-top: -2vw;
+      }
+      .footer {
+        background-color: red;
+        height: 50px;
+        margin-top: -50vw;
+        padding: 3rem 1.5rem 5.5rem;
+
+      }
+} */
