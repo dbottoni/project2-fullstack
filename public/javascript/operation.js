@@ -6,6 +6,7 @@ var loginPage = document.getElementById("loginBtn");
 var showsignPage = document.getElementById("signup-page")
 var showloginPage = document.getElementById("login-page")
 
+
 // startpage();
 showlogin();
 signPage.addEventListener("click", function(e){
