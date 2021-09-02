@@ -25,35 +25,10 @@ var createTask = function(taskText, taskDate, taskList) {
   $("#list-" + taskList).append(taskLi);
 };
 
-var loadTasks = async function(event) {
- 
+var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem("tasks"));
   
-  event.preventDefault();
-
-  const response = await fetch('/api/tasks', {
-    method: 'get',
-    body: JSON.stringify({
-      id,
-      user_id,
-      task_title,
-      task_text,
-      task_due
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-
-  if (response.ok) {
-    document.location.reload();
-  } else {
-    alert(response.statusText);
-  }
-
-
-  let tasks2 = body.id
-  console.log(tasks2)
-  console.log(response)
-  console.log(response.body.id)
+  console.log(tasks)
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
@@ -73,10 +48,14 @@ var loadTasks = async function(event) {
       createTask(task.text, task.date, list);
     });
   });
+  console.log(tasks)
+
+  loadSQL();
 };
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
+  saveSQL();
 };
 
 var auditTask = function(taskEl) {
@@ -99,6 +78,54 @@ var auditTask = function(taskEl) {
     $(taskEl).addClass("list-group-item-warning");
   }
 };
+
+async function loadSQL(event) {
+  event.preventDefault();
+
+  const response = await fetch('/api/tasks', {
+    method: 'get',
+    body: JSON.stringify({
+      id,
+      user_id,
+      task_title,
+      task_text,
+      task_due
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+
+  console.log(response)
+  console.log(response.body)
+
+};
+
+async function saveSQL(event) {
+  event.preventDefault();
+
+  const response = await fetch('/api/tasks', {
+    method: 'get',
+    body: JSON.stringify({
+      id,
+      user_id,
+      task_title,
+      task_text,
+      task_due
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+}
 
 // enable draggable/sortable feature on list-group elements
 $(".card .list-group").sortable({
