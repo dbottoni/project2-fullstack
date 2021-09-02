@@ -8,15 +8,17 @@ var tasks = {};
 var createTask = function(taskText, taskDate, taskList) {
   // create elements that make up a task item
   var taskLi = $("<li>").addClass("list-group-item");
+  var taskDueDate = $("<p>").addClass("is-inline has-text-weight-bold").text("Due Date: ");
   var taskSpan = $("<span>")
     .addClass("badge badge-primary badge-pill")
     .text(taskDate);
+  //var taskTitle = $("<p>").addClass("has-text-weight-bold").text("Title: ");
   var taskP = $("<p>")
     .addClass("m-1")
     .text(taskText);
 
   // append span and p element to parent li
-  taskLi.append(taskSpan, taskP);
+  taskLi.append(taskDueDate, taskSpan, taskP);
 
   // check due date
   auditTask(taskLi);
