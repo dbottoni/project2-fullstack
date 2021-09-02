@@ -109,7 +109,7 @@ async function saveSQL(event) {
   event.preventDefault();
 
   const response = await fetch('/api/tasks', {
-    method: 'get',
+    method: 'post',
     body: JSON.stringify({
       id,
       user_id,
