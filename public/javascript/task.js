@@ -28,34 +28,38 @@ var createTask = function(taskText, taskDate, taskList) {
 var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem("tasks"));
   
-  console.log(tasks)
+  //console.log(tasks)
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
     tasks = {
       toDo: [],
       inProgress: [],
-      inReview: [],
+      //inReview: [],
       done: []
     };
   }
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
+      loadSQL(task.text, task.date, list);
     });
   });
   console.log(tasks)
 
-  loadSQL();
 };
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  saveSQL();
+  //console.log(tasks)
+  saveSQL(tasks);
 };
 
 var auditTask = function(taskEl) {
@@ -79,14 +83,19 @@ var auditTask = function(taskEl) {
   }
 };
 
-async function loadSQL(event) {
-  event.preventDefault();
+async function loadSQL(taskText, taskDate, taskList) {
+  //event.preventDefault();
+
+  const task_title = taskList;
+  const task_text = taskText;
+  const task_due = taskDate;
+
+  console.log(task_title, task_text, task_due)
 
   const response = await fetch('/api/tasks', {
-    method: 'get',
+    method: 'POST',
     body: JSON.stringify({
-      id,
-      user_id,
+      //user_id,
       task_title,
       task_text,
       task_due
@@ -100,31 +109,44 @@ async function loadSQL(event) {
     alert(response.statusText);
   }
 
-  console.log(response)
-  console.log(response.body)
+  // console.log(response)
+  // console.log(response.body)
 
 };
 
-async function saveSQL(event) {
-  event.preventDefault();
+async function saveSQL(tasks) {
+  //event.preventDefault();
 
-  const response = await fetch('/api/tasks', {
-    method: 'post',
-    body: JSON.stringify({
-      id,
-      user_id,
-      task_title,
-      task_text,
-      task_due
-    }),
-    headers: { 'Content-Type': 'application/json' }
+  $.each(tasks, async function(list, arr) {
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
+    // then loop over sub-array
+    arr.forEach(async function(task) {
+      const task_title = list;
+      const task_text = task.text;
+      const task_due = task.date;
+
+      console.log(task_title, task_text, task_due)
+      console.log(tasks)
+      const response = await fetch('/api/tasks', {
+        method: 'POST',
+        body: JSON.stringify({
+          task_title,
+          task_text,
+          task_due
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
+      }
+    });
   });
-
-  if (response.ok) {
-    document.location.reload();
-  } else {
-    alert(response.statusText);
-  }
 }
 
 // enable draggable/sortable feature on list-group elements

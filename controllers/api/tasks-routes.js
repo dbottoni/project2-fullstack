@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   })
   .then(dbTasksdata => res.json(dbTasksdata))
   .catch(err => {
-    res.status(400).jsom(err);
+    res.status(400).json(err);
   });
 });
 

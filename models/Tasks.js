@@ -33,7 +33,7 @@ Tasks.init(
       }
     },
     task_due: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
     },
 
