@@ -25,8 +25,35 @@ var createTask = function(taskText, taskDate, taskList) {
   $("#list-" + taskList).append(taskLi);
 };
 
-var loadTasks = function() {
+var loadTasks = async function(event) {
+ 
   tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+  event.preventDefault();
+
+  const response = await fetch('/api/tasks', {
+    method: 'get',
+    body: JSON.stringify({
+      id,
+      user_id,
+      task_title,
+      task_text,
+      task_due
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+
+
+  let tasks2 = body.id
+  console.log(tasks2)
+  console.log(response)
+  console.log(response.body.id)
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
@@ -222,6 +249,9 @@ $(".list-group").on("blur", "textarea", function() {
 
   // update task in array and re-save to localstorage
   tasks[status][index].text = text;
+  console.log(tasks)
+  //console.log(tasks[status][index].text)
+  //console.log(text)
   saveTasks();
 
   // recreate p element

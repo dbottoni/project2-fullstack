@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Tasks.findAll({
-    attributes: [ 'id', 'comment_text', 'user_id', 'project_id']
+    attributes: [ 'id', 'user_id', 'task_title', 'task_text', 'task_due']
   }) 
   .then(dbTasksdata => res.json(dbTasksdata))
   .catch(err => {
@@ -15,9 +15,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   Tasks.create({
-    comment_text: req.body.comment_text,
     user_id: req.session.user_id,
-    project_id: req.body.project_id
+    task_title: req.body.task_title,
+    tast_text: req.body.task_text,
+    task_due: req.body.task_due
   })
   .then(dbTasksdata => res.json(dbTasksdata))
   .catch(err => {

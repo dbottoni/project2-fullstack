@@ -1,14 +1,10 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-<<<<<<< HEAD
-const exphbs = require('express-handlebars');
-=======
 
 const exphbs = require('express-handlebars');
 
 //const exphbs = require('express-handlebars');
->>>>>>> 196ba4896c9d1609e083d2d9c6bf582fa1cb7f3e
 
 
 const app = express();
@@ -52,5 +48,5 @@ app.use(require('./controllers/'));
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listeningon port ${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
