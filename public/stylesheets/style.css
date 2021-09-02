@@ -1,46 +1,48 @@
-
-
 .section {
-    /* padding: 5rem 3rem; */
-    position: fixed;
-    width: 100%;
-    margin: 5% auto;
+  /* padding: 5rem 3rem; */
+  position: fixed;
+  width: 100%;
+  margin: 5% auto;
 }
 
 #signup-page {
-    position: fixed;
-    width: 100%;
-    margin: 5% auto;
+  position: fixed;
+  width: 100%;
+  margin: 5% auto;
 }
 
 .notification.is-primary {
-    background-color: skyblue;
-    color: #fff;
-    /* padding: 1.25rem 2.5rem 1.25rem 1.5rem; */
-    padding: 5vw 8vw;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: -7vw;
-
+  background-color: skyblue;
+  color: #fff;
+  /* padding: 1.25rem 2.5rem 1.25rem 1.5rem; */
+  padding: 5vw 8vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: -7vw;
 }
 
 .footer {
-    background-color: skyblue;
-    color: black;
-    padding: 3rem 1.5rem 5.5rem;
-    /* height: 50px; */
-    /* margin-top: -50vw; */
+  background-color: skyblue;
+  color: black;
+  padding: 3rem 1.5rem 5.5rem;
+  /* height: 50px; */
+  /* margin-top: -50vw; */
 
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    /* background-color: red; */
-    /* color: white; */
-    text-align: center;
-    
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: red; */
+  /* color: white; */
+  text-align: center;
 }
 
+.list-group-item {
+  border: grey solid;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: grab;
+}
 
 /* @media screen 
   and (min-device-width: 1200px) 
@@ -66,7 +68,6 @@
       }
 } */
 
-
 .row {
   text-align: center;
   justify-content: space-between;
@@ -86,20 +87,20 @@ ul.list-group {
 }
 
 .bottom-trash {
-opacity: 0;
-color: #f1f1f1;
-font-size: 2.3rem;
-font-family: "Staatliches", sans-serif;
-transform: translateY(150px);
-transition: all .5s ease-in-out; 
-background-color: rgba(234, 0, 39, 0.7);
+  opacity: 0;
+  color: #f1f1f1;
+  font-size: 2.3rem;
+  font-family: "Staatliches", sans-serif;
+  transform: translateY(150px);
+  transition: all 0.5s ease-in-out;
+  background-color: rgba(234, 0, 39, 0.7);
 }
 
 .bottom-trash-drag {
-transform: translateY(0);
-opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .bottom-trash-active {
-background-color: rgba(234, 0, 39, 1);
+  background-color: rgba(234, 0, 39, 1);
 }
