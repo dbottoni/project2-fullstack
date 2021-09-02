@@ -93,7 +93,7 @@ async function loadSQL(taskText, taskDate, taskList) {
   console.log(task_title, task_text, task_due)
 
   const response = await fetch('/api/tasks', {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify({
       //user_id,
       task_title,
@@ -108,9 +108,6 @@ async function loadSQL(taskText, taskDate, taskList) {
   } else {
     alert(response.statusText);
   }
-
-  // console.log(response)
-  // console.log(response.body)
 
 };
 
@@ -131,7 +128,7 @@ async function saveSQL(tasks) {
       console.log(task_title, task_text, task_due)
       console.log(tasks)
       const response = await fetch('/api/tasks', {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify({
           task_title,
           task_text,

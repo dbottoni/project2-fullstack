@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
   Tasks.create({
     user_id: req.session.user_id,
     task_title: req.body.task_title,
-    tast_text: req.body.task_text,
+    task_text: req.body.task_text,
     task_due: req.body.task_due
   })
   .then(dbTasksdata => res.json(dbTasksdata))
