@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tasks, User, Project } = require('../../models');
+const { Tasks, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -17,12 +17,12 @@ router.post('/', (req, res) => {
   Tasks.create({
     user_id: req.session.user_id,
     task_title: req.body.task_title,
-    tast_text: req.body.task_text,
+    task_text: req.body.task_text,
     task_due: req.body.task_due
   })
   .then(dbTasksdata => res.json(dbTasksdata))
   .catch(err => {
-    res.status(400).jsom(err);
+    res.status(400).json(err);
   });
 });
 

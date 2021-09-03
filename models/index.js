@@ -1,5 +1,4 @@
 const User = require('./User');
-const Project = require('./Project');
 const Tasks = require('./Tasks');
 
 //need to create associations
@@ -26,11 +25,11 @@ Tasks.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
-Tasks.belongsTo(Project, {
-  foreignKey: 'project_id',
-  onDelete: 'SET NULL'
-});
+// Tasks.belongsTo(Project, {
+//   foreignKey: 'project_id',
+//   onDelete: 'SET NULL'
+// });
 
 
 
-module.exports = { User, Project, Tasks };
+module.exports = { User, Tasks };

@@ -27,58 +27,41 @@ var createTask = function(taskText, taskDate, taskList) {
   $("#list-" + taskList).append(taskLi);
 };
 
-var loadTasks = async function(event) {
- 
+var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem("tasks"));
   
-  event.preventDefault();
-
-  const response = await fetch('/api/tasks', {
-    method: 'get',
-    body: JSON.stringify({
-      id,
-      user_id,
-      task_title,
-      task_text,
-      task_due
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-
-  if (response.ok) {
-    document.location.reload();
-  } else {
-    alert(response.statusText);
-  }
-
-
-  let tasks2 = body.id
-  console.log(tasks2)
-  console.log(response)
-  console.log(response.body.id)
+  //console.log(tasks)
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
     tasks = {
       toDo: [],
       inProgress: [],
-      inReview: [],
+      //inReview: [],
       done: []
     };
   }
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
+      loadSQL(task.text, task.date, list);
     });
   });
+  console.log(tasks)
+
 };
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
+  //console.log(tasks)
+  saveSQL(tasks);
 };
 
 var auditTask = function(taskEl) {
@@ -101,6 +84,69 @@ var auditTask = function(taskEl) {
     $(taskEl).addClass("list-group-item-warning");
   }
 };
+
+async function loadSQL(taskText, taskDate, taskList) {
+  //event.preventDefault();
+
+  const task_title = taskList;
+  const task_text = taskText;
+  const task_due = taskDate;
+
+  console.log(task_title, task_text, task_due)
+
+  const response = await fetch('/api/tasks', {
+    method: 'PUT',
+    body: JSON.stringify({
+      //user_id,
+      task_title,
+      task_text,
+      task_due
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+
+};
+
+async function saveSQL(tasks) {
+  //event.preventDefault();
+
+  $.each(tasks, async function(list, arr) {
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
+    // then loop over sub-array
+    arr.forEach(async function(task) {
+      const task_title = list;
+      const task_text = task.text;
+      const task_due = task.date;
+
+      console.log(task_title, task_text, task_due)
+      console.log(tasks)
+      const response = await fetch('/api/tasks', {
+        method: 'PUT',
+        body: JSON.stringify({
+          task_title,
+          task_text,
+          task_due
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
+      }
+    });
+  });
+}
 
 // enable draggable/sortable feature on list-group elements
 $(".card .list-group").sortable({
