@@ -77,21 +77,23 @@
         <section class="modal-card-body">
           <form>
             <div class="form-group">
-              <label for="modalTaskDescription">Task description</label>
+              <label id="textlabel" for="modalTaskDescription">Task description: </label> 
               <textarea class="form-control" id="modalTaskDescription" rows="3"></textarea>
             </div>
             <div class="form-group">
-              <label for="modalDueDate">Due date</label>
+              <label for="modalDueDate">Due date: </label>
               <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="modalDueDate" autocomplete="off">
             </div>
           </form>
         </section>
-        <div class="control">
-          <button class="button is-link btn btn-save">Save</button>
-        </div>
-        <div class="control">
-          <button class="button is-link is-light" data-dismiss="modal">Cancel</button>
-        </div>
+        <footer class="modal-card-foot">
+          <div class="control">
+            <button class="button is-link btn btn-save">Save</button>
+          </div>
+          <div class="control">
+            <button class="button is-link is-light" data-dismiss="modal">Cancel</button>
+          </div>
+        </footer>
       </div>
     </div>
 <!--End Modal-->

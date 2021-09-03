@@ -103,3 +103,9 @@ opacity: 1;
 .bottom-trash-active {
 background-color: rgba(234, 0, 39, 1);
 }
+
+#textlabel {
+  position:relative;
+  bottom: 2.5vw;
+  left: -1vw;
+}
