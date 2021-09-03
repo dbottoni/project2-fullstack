@@ -4,47 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P2</title>
+  <title>nerdBoard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  
+  <link rel="icon" href="https://live.staticflickr.com/65535/51420907924_1cd3e1273a_s.jpg">
 </head>
 
 <body>
   
     <div class="wrapper">
     <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color:grey">
             <div class="navbar-brand">
-              <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+              <a class="navbar-item">
+                {{!-- <img src="https://live.staticflickr.com/65535/51419919138_4a4d8bbcf6_o.jpg" alt="nardboard-logo"> --}}
+                <img src="https://live.staticflickr.com/65535/51420647985_b97f22271c_o.jpg" alt="nerdboard-logo">
               </a>
-          
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
+             
             </div>
           
             <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a class="navbar-item">
-                  Home
-                </a>
-          
-                <a class="navbar-item">
-                  Documentation
-                </a>
-          
-                
-              </div>
+         
           
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
                     {{#if loggedIn}}
-                    <button id="logout" class="button is-primary">logout</button>
+                    <button id="logout" class="button is-primary">Logout</button>
                     {{else}}
                     <button class="button is-primary" id="signBtn">
                       <strong>Sign up</strong>
@@ -63,10 +49,10 @@
       {{{ body }}}
     </main>
 
-    <footer class="footer" id="FID" style="display: block;">
+    <footer class="footer" id="FID" style="display: block; background-color:skyblue">
         <div class="content has-text-centered">
           <p>
-              footer thanks for visiting balala
+              Thanks for visiting!
           </p>
         </div>
     </footer>

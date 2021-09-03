@@ -21,12 +21,6 @@ User.hasMany(Tasks, {
 //   foreignKey: 'project_id',
 // });
 
-// should this be belongsToMany? - review, causing a circular reference error
-// User.belongsTo(Project, {
-//   foreignKey: 'user_id',
-//   onDelete: 'SET NULL'
-// });
-
 Tasks.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
