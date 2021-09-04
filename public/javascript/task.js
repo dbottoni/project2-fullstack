@@ -94,7 +94,7 @@ async function loadSQL(taskText, taskDate, taskList) {
 
   console.log(task_title, task_text, task_due)
 
-  const response = await fetch('/api/tasks', {
+  const response = await fetch('/api/tasks/', {
     method: 'PUT',
     body: JSON.stringify({
       //user_id,
@@ -129,8 +129,8 @@ async function saveSQL(tasks) {
 
       console.log(task_title, task_text, task_due)
       console.log(tasks)
-      const response = await fetch('/api/tasks', {
-        method: 'PUT',
+      const response = await fetch('/api/tasks/', {
+        method: 'POST',
         body: JSON.stringify({
           task_title,
           task_text,
