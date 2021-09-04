@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Tasks.findAll({
-    attributes: [ 'id', 'comment_text', 'user_id', 'project_id']
+    attributes: [ 'id', 'task_text', 'due_time', 'user_id']
   }) 
   .then(dbTasksdata => res.json(dbTasksdata))
   .catch(err => {

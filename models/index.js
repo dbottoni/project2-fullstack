@@ -1,6 +1,7 @@
 const User = require('./User');
 const Project = require('./Project');
 const Tasks = require('./Tasks');
+const Comment = require('./Comment')
 
 //need to create associations
 User.hasMany(Project, {
@@ -8,6 +9,10 @@ User.hasMany(Project, {
 });
 
 User.hasMany(Tasks, {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Comment, {
   foreignKey: 'user_id'
 });
 
@@ -26,7 +31,10 @@ Project.hasMany(Tasks, {
 //   foreignKey: 'user_id',
 //   onDelete: 'SET NULL'
 // });
-
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
 
 Tasks.belongsTo(User, {
   foreignKey: 'user_id',
@@ -40,4 +48,4 @@ Tasks.belongsTo(Project, {
 
 
 
-module.exports = { User, Project, Tasks };
+module.exports = { User, Project, Tasks, Comment };
