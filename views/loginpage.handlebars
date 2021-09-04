@@ -1,131 +1,114 @@
-<div class="row min-vh-100 no-gutters">
-      <header class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3">
-        <h1 class="text-center primary-border"><span class="oi oi-task d-inline d-lg-none"></span>
-          <b>Tasks</b></h2>
-        <button id="create-task" class="btn btn-block btn-add button is-info" data-toggle="modal" data-target="#task-form-modal"><span
-            class="oi oi-plus mr-2"></span>Add Task</button>
-        <button id="remove-tasks" class="btn btn-block btn-delete mb-2 mb-md-4 button is-info"><span class="oi oi-trash mr-2">
-          </span>Delete All Tasks</button>
-     </header>
-</div>
+  <div class="row min-vh-100 no-gutters">
+        <header class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3">
+          <h1 class="text-center primary-border"><span class="oi oi-task d-inline d-lg-none"></span>
+            <b>Tasks</b></h2>
+          <button id="create-task" class="btn btn-block btn-add button is-info" data-toggle="modal" data-target="#task-form-modal"><span
+              class="oi oi-plus mr-2"></span>Add Task</button>
+          <button id="remove-tasks" class="btn btn-block btn-delete mb-2 mb-md-4 button is-info"><span class="oi oi-trash mr-2">
+            </span>Delete All Tasks</button>
+      </header>
+  </div>
 
-<main>
-    
-      <div class="columns is-centered is-mobile">
-<!--To do--> 
-        <article class="to-do">
-        <div class="column is-narrow">
-          <div class="box" style="width: 300px; border-style:solid;">
-            <p class="title is-5 has-text-centered">To Do</p>
-          </div>
-    
-
-        <div class="col-12 col-md-6 col-xl-3 mb-3">
-          <div class="card">
-            <ul id="list-toDo" class="list-group list-group-flush">
-            </ul>
-          </div>
-        </div>
-        <div class="comments">
-          {{#each this}}
-          <section class="comment">
-            <div class="meta">
-              {{user.username}} on {{format_date created_at}}
+  <main>
+      
+        <div class="columns is-centered is-mobile">
+  <!--To do--> 
+          <article class="to-do">
+          <div class="column is-narrow">
+            <div class="box" style="width: 300px; border-style:solid;">
+              <p class="title is-5 has-text-centered">To Do</p>
             </div>
-            <div class="text">
-              {{comment_text}}
-            </div>
-          </section>
-          {{/each}}
-        </div>
-        <form class="comment-form">
-          <div>
-            <textarea name="comment-body"></textarea>
-          </div>
+      
 
-          <div>
-            <button type="submit">add comment</button>
-          </div>
-        </form>
-        {{> comments post.comments}}
-        </article> 
- <!--To do--> 
- 
-
-  <!--In Process--> 
-        <article class="in-process">
-        <div class="column is-narrow">
-          <div class="box" style="width: 300px; border-style:solid;">
-            <p class="title is-5 has-text-centered">In Process</p>
-        </div>    
-
-        <div class="col-12 col-md-6 col-xl-3 mb-3">
-          <div class="card">
-            <ul id="list-inProgress" class="list-group list-group-flush">
-            </ul>
-          </div>
-        </div>
-        </div>
-        </article>
- <!--In Process--> 
-
-  <!--Complete--> 
-        <article class="complete">
-        <div class="column is-narrow">
-          <div class="box" style="width: 300px; border-style:solid;">
-            <p class="title is-5 has-text-centered">Complete</p>
-          </div>
-          
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
-              <ul id="list-done" class="list-group list-group-flush">
+              <ul id="list-toDo" class="list-group list-group-flush">
               </ul>
             </div>
           </div>
-          </article>
-      
-<!--Complete-->  
-     </div>
+          </article> 
+  <!--To do--> 
 
-     <!-- Modal -->
-     <div id="task-form-modal" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Task Description</p>
-          <button class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </header>
-        <section class="modal-card-body">
-          <form>
-            <div class="form-group">
-              <label id="textlabel" for="modalTaskDescription">Task description: </label> 
-              <textarea class="form-control" id="modalTaskDescription" rows="3"></textarea>
+    <!--In Process--> 
+          <article class="in-process">
+          <div class="column is-narrow">
+            <div class="box" style="width: 300px; border-style:solid;">
+              <p class="title is-5 has-text-centered">In Process</p>
+          </div>    
+
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <div class="card">
+              <ul id="list-inProgress" class="list-group list-group-flush">
+              </ul>
             </div>
-            <div class="form-group">
-              <label for="modalDueDate">Due date: </label>
-              <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="modalDueDate" autocomplete="off">
+          </div>
+          </div>
+          </article>
+  <!--In Process--> 
+
+    <!--Complete--> 
+          <article class="complete">
+          <div class="column is-narrow">
+            <div class="box" style="width: 300px; border-style:solid;">
+              <p class="title is-5 has-text-centered">Complete</p>
             </div>
-          </form>
-        </section>
-        <footer class="modal-card-foot">
-          <div class="control">
-            <button class="button is-link btn btn-save">Save</button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light" data-dismiss="modal">Cancel</button>
-          </div>
-        </footer>
+            
+            <div class="col-12 col-md-6 col-xl-3 mb-3">
+              <div class="card">
+                <ul id="list-done" class="list-group list-group-flush">
+                </ul>
+              </div>
+            </div>
+            </article>
+        
+  <!--Complete-->  
       </div>
-    </div>
-<!--End Modal-->
-      <div class="mt-auto overflow-hidden" id="trash">
-        <div class="w-100 p-3 text-center bottom-trash">
-          <span class="oi oi-trash"> </span> Drop Here to Remove.
+
+      <!-- Modal -->
+      <div id="task-form-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Task Description</p>
+            <button class="close" data-dismiss="modal" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </header>
+          <section class="modal-card-body">
+            <form>
+              <div class="form-group">
+                <label for="modalTaskDescription">Task description</label>
+                <textarea class="form-control" id="modalTaskDescription" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="modalDueDate">Due date</label>
+                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="modalDueDate" autocomplete="off">
+              </div>
+            </form>
+              <div class="control">
+                <button class="button is-link btn btn-save">Save</button>
+                <button class="button is-link is-light" data-dismiss="modal">Cancel</button>
+              </div>
+          </section>
+        
         </div>
       </div>
-</main>
+  <!--End Modal-->
+        <div class="mt-auto overflow-hidden" id="trash">
+          <div class="w-100 p-3 text-center bottom-trash">
+            <span class="oi oi-trash"> </span> Drop Here to Remove.
+          </div>
+        </div>
+  </main>
+
+  <footer class="footer" id="FID" style="display: block;">
+    <div class="content has-text-centered">
+      <p>
+        Thanks for visiting!
+      </p>
+    </div>
+  </footer>
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
@@ -142,5 +125,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="/javascript/task.js"></script>
-    <script src="/javascript/comment.js"></script>
     {{!-- <script src="/javascript/logout.js"></script> --}}
