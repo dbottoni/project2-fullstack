@@ -32,8 +32,8 @@ Project.hasMany(Tasks, {
 //   onDelete: 'SET NULL'
 // });
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
+  // onDelete: 'SET NULL'
 });
 
 Tasks.belongsTo(User, {
