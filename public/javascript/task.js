@@ -51,7 +51,7 @@ var loadTasks = function() {
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
-      loadSQL(task.text, task.date, list);
+      //upDateSQL(task.text, task.date, list);
     });
   });
   console.log(tasks)
@@ -85,7 +85,7 @@ var auditTask = function(taskEl) {
   }
 };
 
-async function loadSQL(taskText, taskDate, taskList) {
+async function upDateSQL(taskText, taskDate, taskList) {
   //event.preventDefault();
 
   const task_title = taskList;
