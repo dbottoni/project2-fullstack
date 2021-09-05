@@ -1,10 +1,14 @@
+
+
 var footerID = document.getElementById("FID")
 
 
 
-function blockfooter() {
+async function blockfooter() {
     footerID.style.display = "none";
 };
 
 
 blockfooter();
+
+console.log("block linked")
