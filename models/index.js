@@ -13,15 +13,6 @@ User.hasMany(Tasks, {
 
 
 
-// Project.belongsTo(User, {
-//   foreignKey: 'user_id',
-//   onDelete: 'SET NULL'
-// });
-
-//not sure this is associated correctly
-// Project.hasMany(Tasks, {
-//   foreignKey: 'project_id',
-// });
 
 Tasks.belongsTo(User, {
   foreignKey: 'user_id',
