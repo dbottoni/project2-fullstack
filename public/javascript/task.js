@@ -8,7 +8,9 @@ var tasks = {};
 var createTask = function(taskText, taskDate, taskList) {
   // create elements that make up a task item
   var taskLi = $("<li>").addClass("list-group-item");
-  var taskDueDate = $("<p>").addClass("is-inline has-text-weight-bold").text("Due Date: ");
+
+  var taskDueDate = $("<h3>").addClass("is-inline has-text-weight-bold").text("Due Date: ");
+
   var taskSpan = $("<span>")
     .addClass("badge badge-primary badge-pill")
     .text(taskDate);
@@ -29,6 +31,8 @@ var createTask = function(taskText, taskDate, taskList) {
 
 var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+  //console.log(tasks)
 
   // if nothing in localStorage, create a new object to track all task status arrays
   if (!tasks) {
@@ -42,16 +46,24 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
+      loadSQL(task.text, task.date, list);
     });
   });
+  console.log(tasks)
+
 };
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
+  //console.log(tasks)
+  saveSQL(tasks);
 };
 
 var auditTask = function(taskEl) {
@@ -74,6 +86,69 @@ var auditTask = function(taskEl) {
     $(taskEl).addClass("list-group-item-warning");
   }
 };
+
+async function loadSQL(taskText, taskDate, taskList) {
+  //event.preventDefault();
+
+  const task_title = taskList;
+  const task_text = taskText;
+  const task_due = taskDate;
+
+  console.log(task_title, task_text, task_due)
+
+  const response = await fetch('/api/tasks/', {
+    method: 'PUT',
+    body: JSON.stringify({
+      //user_id,
+      task_title,
+      task_text,
+      task_due
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+
+};
+
+async function saveSQL(tasks) {
+  //event.preventDefault();
+
+  $.each(tasks, async function(list, arr) {
+    //console.log(list, arr);
+    console.log(list)
+    console.log(arr)
+
+    // then loop over sub-array
+    arr.forEach(async function(task) {
+      const task_title = list;
+      const task_text = task.text;
+      const task_due = task.date;
+
+      console.log(task_title, task_text, task_due)
+      console.log(tasks)
+      const response = await fetch('/api/tasks/', {
+        method: 'POST',
+        body: JSON.stringify({
+          task_title,
+          task_text,
+          task_due
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
+      }
+    });
+  });
+}
 
 // enable draggable/sortable feature on list-group elements
 $(".card .list-group").sortable({
@@ -224,6 +299,9 @@ $(".list-group").on("blur", "textarea", function() {
 
   // update task in array and re-save to localstorage
   tasks[status][index].text = text;
+  console.log(tasks)
+  //console.log(tasks[status][index].text)
+  //console.log(text)
   saveTasks();
 
   // recreate p element
@@ -291,7 +369,7 @@ $(".list-group").on("change", "input[type='text']", function() {
 $("#remove-tasks").on("click", function() {
   for (var key in tasks) {
     tasks[key].length = 0;
-    $("#list-" + key).empty();
+    $("#list-" + key).empty();  
   }
   console.log(tasks);
   saveTasks();

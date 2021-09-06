@@ -11,13 +11,6 @@ Tasks.init(
       primaryKey: true,
       autoIncrement: true
     },
-    comment_text: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -25,13 +18,25 @@ Tasks.init(
         key: 'id'
       }
     },
-    project_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'project',
-        key: 'id'
+    task_title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
-    }
+    },
+    task_text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1] 
+      }
+    },
+    task_due: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+
   },
   {
     sequelize,
