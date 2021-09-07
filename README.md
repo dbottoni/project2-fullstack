@@ -7,7 +7,7 @@
 - [Technology](#technology)
 
 ## Description
-- nerdBoard is a sinplified project management application used to track tasks and keep you organized.
+- nerdBoard is a simplified project management application used to track tasks and keep you organized.
 - The creation of tasks and assignment of deadlines will facilitate users time managment skills.
 
 ## Heroku 
@@ -43,7 +43,7 @@
 ### Contact us through GitHub
  * [Karla](https://github.com/kmre)
  * [Chunyu](https://github.com/mr91217)
- * [Nomrma](https://github.com/ndj13)
+ * [Norma](https://github.com/ndj13)
  * [Dana](https://github.com/dbottoni)
 
 
