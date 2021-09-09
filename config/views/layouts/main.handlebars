@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>nerd|board</title>
+
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" href="https://live.staticflickr.com/65535/51420907924_1cd3e1273a_s.jpg">
+</head>
+
+<body>
+  
+    <div class="wrapper">
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color:grey">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                {{!-- <img src="https://live.staticflickr.com/65535/51419919138_4a4d8bbcf6_o.jpg" alt="nardboard-logo"> --}}
+                <img src="https://live.staticflickr.com/65535/51420647985_b97f22271c_o.jpg" alt="nerdboard-logo">
+              </a>
+             
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+         
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    {{#if loggedIn}}
+                    <button id="logout" class="button is-primary">Logout</button>
+                    {{else}}
+                    <button class="button is-primary" id="signBtn">
+                      <strong>Sign up</strong>
+                    </button>
+                    <button class="button is-light" id="loginBtn">
+                      Login
+                    </button>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+
+    <footer class="footer" id="FID" style="display: block; background-color:skyblue">
+        <div class="content has-text-centered">
+          <p>
+              Thanks for visiting!
+          </p>
+        </div>
+    </footer>
+
+  {{!-- {{#if loggedIn}}
+
+    <footer class="footer" id="FID" style="display: none;">
+        <div class="content has-text-centered">
+          <p>
+              footer thanks for visiting balala
+          </p>
+        </div>
+    </footer>
+  {{/if}} --}}
+
+  {{!-- <script src="./public/javascript/operation.js"></script>
+  <script src="./public/javascript/login.js"></script> --}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script> 
+  <script src="/javascript/blockfooter.js"></script>
+  {{/if}}
+
+</body>
+
+</html>
